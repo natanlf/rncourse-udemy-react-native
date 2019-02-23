@@ -25,6 +25,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <TextInput 
         style={{width: 300, borderColor: "black", borderWidth: 1}}
+        placeholder= "Hello"
         value={this.state.placeName}
         onChangeText={this.placeNameChangedHandler} />
       </View>
@@ -35,7 +36,8 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    padding: 20,
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
