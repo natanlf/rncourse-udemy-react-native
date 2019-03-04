@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-//props são as propriedades passadas de uma tela a outra
-const listItem = (props) => ( //parenteses pois vai retornar uma View, componente visual
-    <View style={styles.listItem}>
-        <Text>{props.placeName}</Text>
-    </View>
+const listItem = (props) => ( 
+    <TouchableOpacity onPress={props.onItemPressed}>
+        <View style={styles.listItem}>
+            <Text>{props.placeName}</Text>
+        </View>
+    </TouchableOpacity>
 )
 
 const styles = StyleSheet.create({

@@ -7,7 +7,7 @@ const placeList = props => {
 
         //envio o valor place para o componente ListItem através da propriedade placeName
         const placesOutput = props.places.map((place, i) => 
-            <ListItem key={i} placeName={place}/>
+            <ListItem key={i} placeName={place} onItemPressed={() => alert("Item pressed -  ID: "+ i)}/>
         )
     return(
         <View style={styles.listContainer}>
