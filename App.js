@@ -10,6 +10,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
+import ListItem from './src/components/ListItem/ListItem'
+
 export default class App extends Component {
 
   state = {
@@ -34,9 +36,10 @@ export default class App extends Component {
   }
 
   render() {
-    //o map percorre meu array e renderiza cada elemento no Text, 
-    //ao chamar a constante tenho o elemento renderizado no Text
-    const placesOutput = this.state.places.map((place, i) => <Text key={i}>{place}</Text>)
+    //envio o valor place para o componente ListItem através da propriedade placeName
+    const placesOutput = this.state.places.map((place, i) => 
+      <ListItem key={i} placeName={place}/>
+    )
     return (
       <View style={styles.container}>
       <View style={styles.inputContainer}>
@@ -50,7 +53,7 @@ export default class App extends Component {
         title="Add"
         onPress={this.placeSubmitHandler}/>
       </View>
-        <View>
+        <View style={styles.listContainer}>
           {placesOutput}
         </View>       
       </View>
@@ -88,5 +91,8 @@ const styles = StyleSheet.create({
   },
   placeButton: {
     width: "30%"
+  },
+  listContainer: {
+    width: "100%"
   }
 });
