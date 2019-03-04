@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
 
 import ListItem from '../ListItem/ListItem'
 
@@ -10,9 +10,9 @@ const placeList = props => {
             <ListItem key={i} placeName={place} onItemPressed={() => props.onItemDeleted(i)}/>
         )
     return(
-        <View style={styles.listContainer}>
+        <ScrollView style={styles.listContainer}>
           {placesOutput}
-        </View>       
+        </ScrollView>       
     )
 }
 
