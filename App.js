@@ -28,11 +28,19 @@ export default class App extends Component {
     })
   }
 
+  placeDeletedHandler = index => {
+    this.setState(prevtState => { //prevState com function, pois state funciona de forma assincrona
+      return {places: prevtState.places.filter((place, i) => {
+        return i !== index //se o indice do array for diferente do clicado então não deleta o item
+      })}
+    }) 
+  } 
+
   render() {
     return (
       <View style={styles.container}>
         <PlaceInput onPlaceAdded={this.placeAddedHandler}/>
-        <PlaceList places={this.state.places}/>
+        <PlaceList places={this.state.places} onItemDeleted={this.placeDeletedHandler} />
       </View>
     );
   }
