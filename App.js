@@ -22,16 +22,16 @@ export default class App extends Component {
   //recebe o PlaceName e concatena e retorna uma lista de locais para o places do App.js
   placeAddedHandler = placeName => {
     this.setState(prevState => {
-      return {
-        places: prevState.places.concat(placeName)
+      return { //O FlatList espera um objeto e precisa de chave e valor
+        places: prevState.places.concat({key: `${Math.random()}` ,value: placeName})
       }
     })
   }
 
-  placeDeletedHandler = index => {
+  placeDeletedHandler = key => {
     this.setState(prevtState => { //prevState com function, pois state funciona de forma assincrona
-      return {places: prevtState.places.filter((place, i) => {
-        return i !== index //se o indice do array for diferente do clicado então não deleta o item
+      return {places: prevtState.places.filter(place => {
+        return place.key !== key //se o indice do array for diferente do clicado então não deleta o item
       })}
     }) 
   } 
